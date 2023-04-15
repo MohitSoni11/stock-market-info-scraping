@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEC Filings for {{ticker}}</title>
+  </head>
+  <body>
+    <a href="/get-sec-filing"><button>Back</button></a>
+    <h1>SEC Filings for {{ticker}}</h1>
+    <h2>From {{start_date}} to {{end_date}}</h2>
+    {% for file in filings_data %}
+      <div>
+        <hr>
+        <p>Filed Date: {{file['filedDate']}}</p>
+        <p>Accepted Date: {{file['acceptedDate']}}</p>
+        <p>Filing URL: <a href="{{file['filingUrl']}}" target="_blank">{{file['filingUrl']}}</a></p>
+        <p>Report URL: <a href="{{file['reportUrl']}}" target="_blank">{{file['reportUrl']}}</a></p>
+        <p>Form Type: {{file['form']}}</p>
+      </div>
+    {% endfor %}
+  </body>
+</html>
